@@ -28,7 +28,7 @@ const HeroSection = ({ darkMode }) => {
     visible: { x: 0, opacity: 1 },
   };
   const collidingLineVariant = {
-    hidden: { x: -100, opacity: 0 },
+    hidden: { x: 100, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
 
@@ -60,7 +60,7 @@ const HeroSection = ({ darkMode }) => {
         transition={{ duration: 1.5 }}
       >
         <motion.h1
-          className={`text-5xl lg:text-5xl font-bold max-w-lg mb-7 ${
+          className={`text-3xl md:text-5xl font-bold max-w-lg mb-5 ${
             darkMode ? "text-white" : "text-black"
           }`}
           initial={{ y: -50 }}
@@ -70,7 +70,7 @@ const HeroSection = ({ darkMode }) => {
           Joshua Calma
         </motion.h1>
         <motion.p
-          className={`text-4xl md:text-4xl max-w-lg mb-8 mr-10 ${
+          className={`text-xl md:text-4xl max-w-lg mb-8 ${
             darkMode ? "text-white" : "text-black"
           }`}
           initial={{ y: -50 }}

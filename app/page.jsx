@@ -10,8 +10,6 @@ import Footer from "./components/Footer";
 import MissionVisionSection from "./components/MissionVisionSection";
 import { Layout, Code, Layers, Heart } from "lucide-react";
 import { RingLoader } from "react-spinners";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(true); // Default to dark mode
@@ -24,80 +22,85 @@ const Portfolio = () => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
+
+    // Dynamically import particles.js when component mounts
+    if (typeof window !== "undefined") {
+      import("particles.js").then((module) => {
+        particlesJS.load = module.default;
+        if (window.particlesJS && document.getElementById("particles-js")) {
+          const particlesConfig = {
+            particles: {
+              number: {
+                value: window.innerWidth < 768 ? 40 : 100, // Adjust particle number for mobile
+                density: { enable: true, value_area: 800 },
+              },
+              color: { value: darkMode ? "#ffffff" : "#333333" },
+              shape: {
+                type: "circle",
+                stroke: { width: 0, color: "#000000" },
+                polygon: { nb_sides: 5 },
+              },
+              opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                  enable: false,
+                  speed: 1,
+                  opacity_min: 0.1,
+                  sync: false,
+                },
+              },
+              size: {
+                value: 3,
+                random: true,
+                anim: { enable: false, speed: 50, size_min: 0.5, sync: false },
+              },
+              line_linked: {
+                enable: true,
+                distance: 150,
+                color: darkMode ? "#ffffff" : "#333333",
+                opacity: 0.4,
+                width: 1,
+              },
+              move: {
+                enable: true,
+                speed: 3,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: { enable: false, rotateX: 600, rotateY: 1200 },
+              },
+            },
+            interactivity: {
+              detect_on: "canvas",
+              events: {
+                onhover: { enable: true, mode: "grab" },
+                onclick: { enable: true, mode: "bubble" }, // Change mode to "bubble" on click
+                resize: true,
+              },
+              modes: {
+                grab: { distance: 140, line_linked: { opacity: 1 } },
+                bubble: {
+                  distance: 400,
+                  size: 40,
+                  duration: 2,
+                  opacity: 8,
+                  speed: 3,
+                },
+                repulse: { distance: 200, duration: 0.4 },
+                push: { particles_nb: 4 },
+                remove: { particles_nb: 2 },
+              },
+            },
+            retina_detect: true,
+          };
+          window.particlesJS("particles-js", particlesConfig);
+        }
+      });
+    }
   }, []);
-
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
-
-  const particlesConfig = {
-    particles: {
-      number: {
-        value: window.innerWidth < 768 ? 40 : 100, // Adjust particle number for mobile
-        density: { enable: true, value_area: 800 },
-      },
-      color: { value: darkMode ? "#ffffff" : "#333333" },
-      shape: {
-        type: "circle",
-        stroke: { width: 0, color: "#000000" },
-        polygon: { nb_sides: 5 },
-      },
-      opacity: {
-        value: 0.5,
-        random: false,
-        anim: {
-          enable: false,
-          speed: 1,
-          opacity_min: 0.1,
-          sync: false,
-        },
-      },
-      size: {
-        value: 3,
-        random: true,
-        anim: { enable: false, speed: 50, size_min: 0.5, sync: false },
-      },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: darkMode ? "#ffffff" : "#333333",
-        opacity: 0.4,
-        width: 1,
-      },
-      move: {
-        enable: true,
-        speed: 3,
-        direction: "none",
-        random: false,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-        attract: { enable: false, rotateX: 600, rotateY: 1200 },
-      },
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: { enable: true, mode: "grab" },
-        onclick: { enable: true, mode: "bubble" }, // Change mode to "bubble" on click
-        resize: true,
-      },
-      modes: {
-        grab: { distance: 140, line_linked: { opacity: 1 } },
-        bubble: {
-          distance: 400,
-          size: 40,
-          duration: 2,
-          opacity: 8,
-          speed: 3,
-        },
-        repulse: { distance: 200, duration: 0.4 },
-        push: { particles_nb: 4 },
-        remove: { particles_nb: 2 },
-      },
-    },
-    retina_detect: true,
-  };
 
   useEffect(() => {
     // Apply dark mode class to body
@@ -106,6 +109,78 @@ const Portfolio = () => {
         document.body.classList.add("dark-mode");
       } else {
         document.body.classList.remove("dark-mode");
+      }
+      // Reinitialize particles.js to apply the correct color
+      if (window.particlesJS && document.getElementById("particles-js")) {
+        const particlesConfig = {
+          particles: {
+            number: {
+              value: window.innerWidth < 768 ? 40 : 100, // Adjust particle number for mobile
+              density: { enable: true, value_area: 800 },
+            },
+            color: { value: darkMode ? "#ffffff" : "#333333" },
+            shape: {
+              type: "circle",
+              stroke: { width: 0, color: "#000000" },
+              polygon: { nb_sides: 5 },
+            },
+            opacity: {
+              value: 0.5,
+              random: false,
+              anim: {
+                enable: false,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false,
+              },
+            },
+            size: {
+              value: 3,
+              random: true,
+              anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+            },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: darkMode ? "#ffffff" : "#333333",
+              opacity: 0.4,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 3,
+              direction: "none",
+              random: false,
+              straight: false,
+              out_mode: "out",
+              bounce: false,
+              attract: { enable: false, rotateX: 600, rotateY: 1200 },
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: { enable: true, mode: "grab" },
+              onclick: { enable: true, mode: "bubble" }, // Change mode to "bubble" on click
+              resize: true,
+            },
+            modes: {
+              grab: { distance: 140, line_linked: { opacity: 1 } },
+              bubble: {
+                distance: 400,
+                size: 40,
+                duration: 2,
+                opacity: 8,
+                speed: 3,
+              },
+              repulse: { distance: 200, duration: 0.4 },
+              push: { particles_nb: 4 },
+              remove: { particles_nb: 2 },
+            },
+          },
+          retina_detect: true,
+        };
+        window.particlesJS("particles-js", particlesConfig);
       }
     }
   }, [darkMode]);
@@ -190,7 +265,7 @@ const Portfolio = () => {
         darkMode ? "bg-gray-900 text-gray-100" : "bg-white text-gray-800"
       }`}
     >
-      <Particles id="particles-js" init={particlesInit} options={particlesConfig} />
+      <div id="particles-js" className="absolute inset-0 z-0"></div>
       {!loading && (
         <Navbar
           darkMode={darkMode}
