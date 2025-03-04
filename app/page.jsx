@@ -53,7 +53,7 @@ const Portfolio = () => {
               size: {
                 value: 3,
                 random: true,
-                anim: { enable: false, speed: 50, size_min: 0.5, sync: false },
+                anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
               },
               line_linked: {
                 enable: true,
@@ -77,7 +77,7 @@ const Portfolio = () => {
               detect_on: "canvas",
               events: {
                 onhover: { enable: true, mode: "grab" },
-                onclick: { enable: true, mode: "bubble" }, // Change mode to "bubble" on click
+                onclick: { enable: true, mode: "push" },
                 resize: true,
               },
               modes: {
@@ -161,7 +161,7 @@ const Portfolio = () => {
             detect_on: "canvas",
             events: {
               onhover: { enable: true, mode: "grab" },
-              onclick: { enable: true, mode: "bubble" }, // Change mode to "bubble" on click
+              onclick: { enable: true, mode: "push" },
               resize: true,
             },
             modes: {
@@ -215,7 +215,10 @@ const Portfolio = () => {
   }, []);
 
   const handleNavClick = (sectionId) => {
-    setActiveSection(sectionId);
+    if (sectionsRef.current[sectionId]) {
+      sectionsRef.current[sectionId].scrollIntoView({ behavior: "smooth" });
+      setActiveSection(sectionId); // Ensure active section is updated
+    }
   };
 
   // Projects data
