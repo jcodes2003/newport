@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "NODE_VERSION": "14.17.0" // Specify the required Node.js version
+    }
+  }
+}
