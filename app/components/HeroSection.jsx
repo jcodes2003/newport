@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const HeroSection = ({ darkMode }) => {
   const [text, setText] = useState("");
-  const fullText = "Front-End Developer & Back-End Developer";
+  const fullText = "  Front-End Developer & Back-End Developer";
 
   useEffect(() => {
     let index = 0;
