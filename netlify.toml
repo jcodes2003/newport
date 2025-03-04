@@ -4,6 +4,10 @@
 
 [build.environment]
   NODE_VERSION = "14.17.0"
+  GO_VERSION = "1.17.0" # Specify the required Go version
+
+[context.production.environment]
+  GO_VERSION = "1.17.0"
 
 [[redirects]]
   from = "/*"
