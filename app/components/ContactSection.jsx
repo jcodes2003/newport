@@ -13,7 +13,7 @@ const ContactSection = ({ darkMode }) => {
       viewport={{ once: false }}
     >
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-16">Get In Touch</h2>
+        <h2 className="text-3xl font-bold text-center mb-16">Contact</h2>
         <div className="max-w-2xl mx-auto">
           <form>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
