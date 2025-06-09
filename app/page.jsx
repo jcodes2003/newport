@@ -13,7 +13,7 @@ import { RingLoader } from "react-spinners";
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(true); // Default to dark mode
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("");
   const [loading, setLoading] = useState(true);
   const sectionsRef = useRef({});
 
@@ -224,22 +224,28 @@ const Portfolio = () => {
   // Projects data
   const projects = [
     {
-      title: "E-Commerce Website",
+      title: "Grade Management System",
       description:
-        "A full-featured online store with shopping cart and user authentication.",
-      tags: ["React", "Node.js", "MongoDB"],
+        "Manage and generate student grades efficiently and export grade.",
+      tags: ["HTML", "CSS", "MYSQL", "PHP", "JAVASCRIPT"],
     },
     {
-      title: "Task Management App",
+      title: "Clinica Dentista Appointment and Profile System",
       description:
-        "A productivity application for organizing and prioritizing tasks.",
-      tags: ["React", "Redux", "Firebase"],
+        "Profile and manage patient appointments seamlessly export reports.",
+      tags: ["HTML", "CSS", "MYSQL", "PHP", "JAVASCRIPT"],
     },
     {
-      title: "Social Media Dashboard",
+      title: "Design Thinking App",
       description:
-        "Analytics dashboard for monitoring social media performance.",
-      tags: ["React", "Chart.js", "API Integration"],
+        "A platform for instructors to generate innovative teaching ideas.",
+      tags: ["FLUTTER", "MYSQL", "DART", "PHP"],
+    },
+    {
+      title: "Musify",
+      description:
+        "Music Player Mobile Application",
+      tags: ["FLUTTER", "MYSQL", "DART", "PHP"],
     },
   ];
 

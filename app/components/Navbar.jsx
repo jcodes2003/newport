@@ -10,22 +10,26 @@ const Navbar = ({ darkMode, activeSection, handleNavClick, toggleDarkMode }) => 
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section, #home");
-      let currentSection = "home";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop - sectionHeight / 2) {
-          currentSection = section.getAttribute("id");
-        }
-      });
-      handleNavClick(currentSection);
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            handleNavClick(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
 
-    window.addEventListener("scroll", handleScroll);
+    const sections = document.querySelectorAll("section, #home");
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
     };
   }, [handleNavClick]);
 

@@ -27,9 +27,9 @@ const MissionVisionSection = ({ darkMode }) => {
             <img
               src="/assets/images/mission.png" // Replace with the path to your image
               alt="Mission"
-              className="w-48 h-48 md:w-64 md:h-64 rounded-lg shadow-lg mb-4 md:mb-0 md:mr-4"
+              className="w-48 h-48 md:w-64 md:h-64 rounded-lg shadow-lg mb-4 md:mb-0 md:mr-4 order-1"
             />
-            <div className="text-left">
+            <div className="text-left order-2 md:ml-4">
               <h3 className={`text-3xl font-semibold mb-3 text-center ${darkMode ? "text-white" : "text-black"}`}>Mission</h3>
               <p className={`mb-3 text-lg ${darkMode ? "text-white" : "text-black"}`}>
                 To innovate and revolutionize digital systems through cutting-edge websites and applications, creating seamless,
@@ -47,8 +47,8 @@ const MissionVisionSection = ({ darkMode }) => {
             transition={{ duration: 0.5 }}
             viewport={{ once: false }}
           >
-            <div className="text-left">
-              <h3 className={`text-3xl font-semibold mb-3 text-center${darkMode ? "text-white" : "text-black"}`}>Vision</h3>
+            <div className="text-left order-2 md:order-1 md:mr-4">
+              <h3 className={`text-3xl font-semibold mb-3 text-center ${darkMode ? "text-white" : "text-black"}`}>Vision</h3>
               <p className={`mb-3 text-lg ${darkMode ? "text-white" : "text-black"}`}>
                 To make everything easier and more accessible anywhere through secure, intelligent, and user-friendly digital solutions,
                 ensuring a seamless experience for all. Our vision is to be a global leader in technology, driving progress and innovation
@@ -60,7 +60,7 @@ const MissionVisionSection = ({ darkMode }) => {
             <img
               src="/assets/images/vision.png" // Replace with the path to your image
               alt="Vision"
-              className="w-48 h-48 md:w-64 md:h-64 rounded-lg shadow-lg mb-4 md:mb-0 md:ml-4"
+              className="w-48 h-48 md:w-64 md:h-64 rounded-lg shadow-lg mb-4 md:mb-0 order-1 md:order-2"
             />
           </motion.div>
         </div>
