@@ -17,19 +17,24 @@ const MissionVisionSection = ({ darkMode }) => {
           Mission & Vision
         </h2>
         <div className="flex flex-col gap-8">
+          {/* Mission Box */}
           <motion.div
-            className="flex flex-col md:flex-row items-center md:items-start"
+            className={`flex flex-col md:flex-row items-center md:items-start rounded-xl shadow-lg p-6 ${
+              darkMode
+                ? "bg-gray-800 bg-opacity-80 border border-gray-700"
+                : "bg-white bg-opacity-90 border border-gray-200"
+            }`}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: false }}
           >
             <img
-              src="/assets/images/mission.png" // Replace with the path to your image
+              src="/assets/images/mission.png"
               alt="Mission"
               className="w-48 h-48 md:w-64 md:h-64 rounded-lg shadow-lg mb-4 md:mb-0 md:mr-4 order-1"
             />
-            <div className="text-left order-2 md:ml-4">
+            <div className="text-left order-2 md:ml-4 flex-1">
               <h3 className={`text-3xl font-semibold mb-3 text-center ${darkMode ? "text-white" : "text-black"}`}>Mission</h3>
               <p className={`mb-3 text-lg ${darkMode ? "text-white" : "text-black"}`}>
                 To innovate and revolutionize digital systems through cutting-edge websites and applications, creating seamless,
@@ -40,14 +45,19 @@ const MissionVisionSection = ({ darkMode }) => {
               </p>
             </div>
           </motion.div>
+          {/* Vision Box */}
           <motion.div
-            className="flex flex-col md:flex-row items-center md:items-start"
+            className={`flex flex-col md:flex-row items-center md:items-start rounded-xl shadow-lg p-6 ${
+              darkMode
+                ? "bg-gray-800 bg-opacity-80 border border-gray-700"
+                : "bg-white bg-opacity-90 border border-gray-200"
+            }`}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: false }}
           >
-            <div className="text-left order-2 md:order-1 md:mr-4">
+            <div className="text-left order-2 md:order-1 md:mr-4 flex-1">
               <h3 className={`text-3xl font-semibold mb-3 text-center ${darkMode ? "text-white" : "text-black"}`}>Vision</h3>
               <p className={`mb-3 text-lg ${darkMode ? "text-white" : "text-black"}`}>
                 To make everything easier and more accessible anywhere through secure, intelligent, and user-friendly digital solutions,
@@ -58,7 +68,7 @@ const MissionVisionSection = ({ darkMode }) => {
               </p>
             </div>
             <img
-              src="/assets/images/vision.png" // Replace with the path to your image
+              src="/assets/images/vision.png"
               alt="Vision"
               className="w-48 h-48 md:w-64 md:h-64 rounded-lg shadow-lg mb-4 md:mb-0 order-1 md:order-2"
             />
