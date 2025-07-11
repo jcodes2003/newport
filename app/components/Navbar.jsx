@@ -2,7 +2,12 @@
 import React, { useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 
-const Navbar = ({ darkMode, activeSection, handleNavClick, toggleDarkMode }) => {
+const Navbar = ({
+  darkMode,
+  activeSection,
+  handleNavClick,
+  toggleDarkMode,
+}) => {
   const handleClick = (e, sectionId) => {
     e.preventDefault();
     document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
@@ -40,7 +45,10 @@ const Navbar = ({ darkMode, activeSection, handleNavClick, toggleDarkMode }) => 
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="font-bold text-xl">Portfolio</div>
+        <div className="flex items-center gap-2 font-bold text-xl">
+          <img src="/assets/images/logo.png" alt="Logo" className="h-15 w-15 object-contain" />
+          Portfolio
+        </div>
         <div className="hidden md:flex space-x-8 text-lg justify-center w-full">
           <a
             href="#home"
