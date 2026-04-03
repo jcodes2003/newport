@@ -106,11 +106,11 @@ const HeroSection = ({ darkMode }) => {
         variants={imageVariants}
         transition={{ duration: 1.5 }}
       >
-        <div className="relative w-60 h-60 md:w-96 md:h-96 overflow-hidden left-1 md:left-0">
+        <div className="relative w-60 h-60 md:w-96 md:h-96 overflow-hidden rounded-2xl shadow-lg bg-gray-900">
           <motion.img
-            src="/assets/images/me.png" // Replace with the path to your image
-            alt="Your Image"
-            className="w-full h-full object-contain"
+            src="/assets/images/me.png"
+            alt="Profile Picture"
+            className="w-full h-full object-cover rounded-2xl"
             initial="hidden"
             animate="visible"
             variants={lineVariants}
